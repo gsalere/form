@@ -1,0 +1,313 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+:root{
+    --green-200: hsl(148, 38%, 91%);
+    --green-600: hsl(169, 82%, 27%);
+    --red: hsl(0, 66%, 54%);
+    --white: hsl(0, 0%, 100%);
+    --grey-500: hsl(186, 15%, 59%);
+    --grey-900: hsl(187, 24%, 22%);
+}
+
+body{
+    font-family: 'Karla', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--green-200); 
+}
+
+.contactForm{
+    padding: 2rem;
+    margin: 4rem 7rem 4rem 7rem;
+    background-color: var(--white);
+    border-radius: 10px;
+    min-height: 55vh;
+    min-width: 50vh;
+}
+
+.formGroup{
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.name{
+    display: flex;
+    flex-direction: column;
+}
+
+.name label{
+    margin-bottom: 1rem;
+}
+
+.lastname{
+    display: flex;
+    flex-direction: column;
+}
+
+.lastname label{
+    margin-bottom: 1rem;
+}
+
+.error{
+    display: none;
+    color: var(--red);
+    font-size: 14px;
+    margin-top: .3rem;
+}
+
+
+span{
+    color: var(--green-600);
+}
+.inputName{
+    font-size: 16px;
+    padding: .75rem;
+    width: 20rem;
+    border: 1px solid var(--grey-500);
+    border-radius: 10px;
+}
+
+.email{
+    display: flex;
+    flex-direction: column;
+}
+
+.email label{
+    margin-bottom: 1rem;
+}
+.inputEmail{
+    font-size: 16px;
+    padding: .75rem;
+    width: 41rem;
+    border: 1px solid var(--grey-500);
+    border-radius: 10px;    
+}
+
+
+.general, .support{
+    font-size: 16px;
+    padding: .75rem;
+    width: 20rem;
+    border: 1px solid var(--grey-500);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.general input, .support input{
+    transform: scale(1.5); /* Aumenta o tamanho */
+    appearance: none;      /* Remove o estilo padrão do navegador */
+    -webkit-appearance: none; /* Para navegadores baseados em WebKit */
+    width: 10px;
+    height: 10px;
+    border: 1px solid #555;
+    border-radius: 50%; /* Torna o botão circular */
+    background-color: white;
+    cursor: pointer;
+    position: relative;
+    transition: background-color.3s ease;
+    margin-right: 1rem;
+}
+
+.general input:checked, .support input:checked {
+    background-color: white; /* Cor de fundo verde ao selecionar */
+    border-color: green;     /* Altera a cor da borda para verde */
+}
+
+.general input:checked::after,  .support input:checked::after{
+    content: ''; /* Necessário para criar um elemento visível */
+    width: 5px; /* Tamanho da bolinha */
+    height: 5px; /* Tamanho da bolinha */
+    background-color: var(--green-600); /* Cor da bolinha */
+    border-radius: 50%; /* Torna a bolinha circular */
+    position: absolute;
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); 
+}
+
+.group{
+    display: flex;
+    gap: 1rem;
+ 
+}
+
+.allGroup{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.message{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.message textarea{
+    font-size: 16px;
+    padding: 1rem;
+    width: 41rem;
+    height: 8rem;
+    border: 1px solid var(--grey-500);
+    border-radius: 10px;
+    resize: vertical;
+}
+
+.consent input{
+    transform: scale(1.5);
+    cursor: pointer;
+    appearance: none;      /* Remove o estilo padrão do navegador */
+    -webkit-appearance: none; /* Para compatibilidade com navegadores baseados em WebKit */
+    width: 15px;
+    height: 15px;
+    border: 1px solid var(--grey-500);
+    background-color: white;
+    cursor: pointer;
+    margin-left: 4px;
+}
+
+.consent input:checked {
+    background-color: var(--green-600);
+}
+
+.consent input:checked::before {
+    content: '✔'; /* Símbolo de verificação */
+    color: white; /* Cor do símbolo */
+    font-size: 12px;
+    position: absolute;
+    top: -2px;
+    left: 2px;
+  }
+
+
+.consent label{
+    font-size: 16px;
+    margin-left: 1rem;
+}
+
+.radioOption{
+    background-color: var(--green-200);
+}
+
+.submit{
+    font-size: 16px;
+    padding: .75rem;
+    width: 41rem;
+    border: 1px solid var(--grey-500);
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--green-600);
+    color: var(--white)
+}
+
+.submit:hover {
+    filter: brightness(70%); /* Reduz o brilho do background no hover */
+}
+
+input:focus, textarea:focus{
+    outline: none;
+    border: 1px solid var(--green-600);
+}
+
+
+.successMessage {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem;
+    background-color: #2A4244; /* Verde de sucesso */
+    color: white;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    width: 30%; /* Pode ajustar o tamanho conforme necessário */
+    z-index: 1000; /* Garante que a mensagem fique sobre outros elementos */
+  }
+  
+  .successMessage p {
+    text-align: left;
+    margin: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .sm-text{
+    font-size: 14px;
+    color: var(--grey-500)
+  }
+  
+  .attribution{
+    margin-top: -3rem;
+    margin-bottom: 2rem;
+    color: var(--grey-900);
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .contactForm {
+        padding: 1.5rem; /* Menos padding em telas menores */
+        margin: 1rem 1rem 1rem 1rem; /* Menos margem */
+        min-width:  15rem;
+    }
+
+    .formGroup {
+        flex-direction: column; /* Coloca os inputs em coluna */
+        gap: 0.5rem; /* Menos espaçamento entre elementos */
+    }
+
+    .inputName, .inputEmail, .inputMessage, .submit {
+        font-size: 14px; /* Fonte menor em telas pequenas */
+    }
+
+    .group{
+        flex-direction: column; /* Coloca os inputs em coluna */
+        gap: 0.5rem; /* Menos espaçamento entre elementos */
+    }
+
+    #message, .inputEmail{
+        width: 20rem; /* Tamanho do input para ajustar ao conteúdo */
+    }
+
+    .submit{
+        padding: 1rem; /* Botão um pouco maior em telas muito pequenas */
+        width: 20rem;
+    }
+
+    .attribution{
+        font-size: 12px; /* Fonte menor para atribuir a fonte original */
+        margin-top: 0; /* Desloca a atribuição para baixo */
+        margin-bottom: 1rem;
+    }
+
+    .consent label{
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 440px) {
+    .inputName, .inputEmail, .inputMessage, .submit {
+        font-size: 12px; /* Fonte menor em telas pequenas */
+    }
+
+    .submit{
+        padding: 1rem; /* Botão um pouco maior em telas muito pequenas */
+        width: 18rem;
+    }
+
+    .general, .support, .inputName, #message, .inputEmail{
+        width: 18rem;
+    }
+
+}
